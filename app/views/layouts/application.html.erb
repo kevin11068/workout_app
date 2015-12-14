@@ -28,15 +28,25 @@
 
 					<ul class="nav navbar-nav navbar-right">
 					<li><%= link_to "Sign up", new_user_registration_path %></li>
-					</ul>
 
+					<li><%= link_to "Sign in", new_user_session_path %></li>
+					</ul>
+					
+					<% if user_signed_in? %>
+						<div class="navbar-right">
+							<p class="navbar-text">
+								Signed in as <%= "#{current_user.email}" %>
+							</p>
+						</div>
+					<% end %>
 				</div>
 			</div>
 		</nav>
 	</header>
+
 <div class="container">
 	<% flash.each do |name, msg| %>
-		<div class= "alert alert-<%="#{name}"%>">
+		<div class='alert alert-<%="#{name}" %> fade in'>
 		<a href="#" class="close" data-dismiss="alert">&#215;</a>
 			<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
 		</div>
