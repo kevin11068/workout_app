@@ -3,14 +3,22 @@
 		<%= form_for([current_user, @exercise], :html => {class: "form-horizontal", role: "form"}) do |f| %>
 			
 			<% if @exercise.errors.any? %>
-				<div id="error_explanation">
+				<div class="row">
+					<div class="alert alert-info">
+					<a href="#" class="close" data-dismiss="alert">&#215;</a>
+					<div id="error_explanation">
 					<h2><%= pluralize(@exercise.errors.count, "error") %>
 					prohibited this exercise from being saved: </h2>
-				<ul>
+
+					<ul>
+				
 					<% @exercise.errors.full_messages.each do |message| %>
 					<li><%= message %></li>
 					<% end %>
-				</ul>
+					</ul>
+			
+					</div>
+				</div>
 				</div>
 			<% end %>
 
