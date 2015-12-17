@@ -11,6 +11,7 @@ RSpec.feature "Editing exercise" do
 		visit "/"
 		click_link "My Lounge"
 		link = "//a[contains(@href, '/users/#{@owner.id}/exercises/#{@owner_exe.id}') and .//text()='Destroy']"
+		# link = "//a[text()='destroy']/@href='/users/#{@owner.id}/exercises/#{@owner_exe.id}'"
 		find(:xpath, link).click
 
 		expect(page).to have_content("Exercise has been deleted")

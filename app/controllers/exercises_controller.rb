@@ -4,6 +4,7 @@ class ExercisesController < ApplicationController
 	
 	def index
 		@exercises = current_user.exercises.all
+		# @arr = ['a','b','c'] 
 	end
 
 	def new
