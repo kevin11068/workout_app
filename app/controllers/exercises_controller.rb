@@ -5,6 +5,7 @@ class ExercisesController < ApplicationController
 	def index
 		@exercises = current_user.exercises.all
 		# @arr = ['a','b','c'] 
+		@friends = current_user.friends
 	end
 
 	def new
